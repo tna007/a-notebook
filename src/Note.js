@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Note({notes}) {
+function Note({notes, del}) {
     return (
         <div>
             {notes.map((note) => (
@@ -8,9 +8,9 @@ function Note({notes}) {
                 <li>
                   {note.content}
                 </li>
+                {notes.length > 1 && <button onClick={del}>Delete</button>}
               </ul>
             ))}
-        
         </div>
     );
 }
