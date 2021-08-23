@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import * as actionTypes from "../actions";
+import * as actionTypes from "../store/actions";
 
 class Note extends Component {
   submitHandler = (e) => {
     e.preventDefault();
-    this.props.addNote(e.target.note.value);
+    if (e.target.note.value !== "") {
+      this.props.addNote(e.target.note.value);
+    }
     e.target.note.value = "";
   };
 
