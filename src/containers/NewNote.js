@@ -6,7 +6,7 @@ function NewNote() {
   const notes = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  let i = notes.length;
+  let i = notes.length; // i = 0
 
   const addNote = (text) => ({
     type: actionTypes.ADD_NOTE,

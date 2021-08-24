@@ -4,7 +4,7 @@ const reducer = (state = [], action) => {
   switch (action.type) {
     case actionTypes.ADD_NOTE:
       return state.concat({
-        id: action.id + 1,
+        id: action.id + 1, // id = 1
         text: action.text,
         completed: action.completed,
       });
