@@ -1,27 +1,26 @@
 import * as actionTypes from "./actions";
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = [], action) => {
   switch (action.type) {
     case actionTypes.ADD_NOTE:
-      return {
-        ...state,
-        notes: state.notes.concat({ id: new Date(), text: action.data }),
-      };
-    case actionTypes.DELETE_NOTE:
-      return {
-        ...state,
-        notes: state.notes.filter((item) => item.id !== action.payload),
-      };
+      return state.concat({
+        id: action.id + 1,
+        text: action.text,
+        completed: action.completed,
+      });
+    case actionTypes.TOGGLE_NOTE:
+      return state.map((item) =>
+        item.id === action.id ? { ...item, completed: !item.completed } : item
+      );
+    // case actionTypes.DELETE_NOTE:
+    //   return {
+    //     ...state,
+    //     notes: state.notes.filter((item) => item.id !== action.payload),
+    //   };
 
     default:
-      break;
+      return state;
   }
-
-  return state;
-};
-
-const initialState = {
-  notes: [],
 };
 
 export default reducer;

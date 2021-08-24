@@ -1,2 +1,3 @@
-export const ADD_NOTE = "Add new note";
-export const DELETE_NOTE = "Delete note";
+export const ADD_NOTE = "ADD_NOTE";
+export const DELETE_NOTE = "DELETE_NOTE";
+export const TOGGLE_NOTE = "TOGGLE_NOTE";
