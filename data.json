@@ -19,15 +19,18 @@
   "notes": [
     {
       "id": 1,
-      "content": "an example"
+      "text": "testing",
+      "completed": true
     },
     {
-      "content": "test",
-      "id": 2
+      "id": 2,
+      "text": "state changes are made with actions",
+      "completed": false
     },
     {
-      "content": "test 2",
-      "id": 3
+      "id": 3,
+      "text": "the app state is in redux store",
+      "completed": true
     }
   ]
 }
