@@ -1,7 +1,10 @@
 import * as actionTypes from "./actions";
+import noteServices from "../services/notes";
 
 const reducer = (state = [], action) => {
   switch (action.type) {
+    case actionTypes.INIT_NOTES:
+      return action.data;
     case actionTypes.ADD_NOTE:
       return state.concat({
         id: action.id + 1, // id = 1
@@ -23,4 +26,13 @@ const reducer = (state = [], action) => {
   }
 };
 
+export const initializeNotes = () => {
+  return async (dispatch) => {
+    const notes = await noteServices.getAll();
+    dispatch({
+      type: actionTypes.INIT_NOTES,
+      data: notes,
+    });
+  };
+};
 export default reducer;
