@@ -2,27 +2,21 @@ import React from "react";
 import * as actionTypes from "../store/actions";
 import { useSelector, useDispatch } from "react-redux";
 
+import { createNote } from "../store/reducer";
+
 function NewNote() {
   const notes = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  let i = notes.length; // i = 0
-
-  const addNote = (text) => ({
-    type: actionTypes.ADD_NOTE,
-    id: i++,
-    text: text,
-    completed: false,
-  });
-
-  const submitHandler = (e) => {
+  const addNote = async (e) => {
     e.preventDefault();
-    dispatch(addNote(e.target.noteInput.value));
+    const text = e.target.noteInput.value;
+    dispatch(createNote(text));
     e.target.noteInput.value = "";
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={addNote}>
       <input type="text" name="noteInput" />
       <input type="submit" value="Add" />
     </form>
