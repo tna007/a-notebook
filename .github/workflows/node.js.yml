@@ -5,7 +5,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ redux_hooks_thunk ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
